@@ -29,15 +29,21 @@ Mateusz Rus odpowiedzialny za część frontendową
 
 Etapy:
 Rozpoczęcie projektu i ustalanie wymagań
-	Zadania:
+
+Zadania:
 - Zebranie wymagań dotyczących aplikacji tj. ustalenie problemu biznesowego, wyszukanie grupy potencjalnych odbiorców, sprawdzenie konkurencyjnych produktów o podobnej tematyce. 
+
  Wykonanie - cały zespół
+ 
  Kamień milowy - Ustalenie potrzebnych wymagań 
+ 
 Rozpoczęcie pracy nad poprawną architekturą aplikacji (specyfikacją) odpowiadającej postawionym wymaganiom.
-	Zadania:
+
+Zadania:
 - Ustalenie technologii użytej do zbudowania UI sprawdzenie potencjalnych możliwości i dopasowanie do potencjalnych odbiorców oraz urządzeń, z których będą korzystali - wykonanie Mateusz Rus
 - Ustalenie technologii użytej do zbudowania backendu aplikacji biorąc pod uwagę komunikację klient serwer w czasie rzeczywistym oraz wybranie bazy danych spełniającej postawione wymagania - wykonanie Wojciech Chrobak
-	Kamień milowy - ustalenie pełnej architektury aplikacji
+
+Kamień milowy - ustalenie pełnej architektury aplikacji
 
 Dewelopment aplikacji.
 
