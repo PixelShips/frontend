@@ -42,7 +42,7 @@ Dewelopment aplikacji.
 Zadania:
 
 
-   Mateusz Rus
+   Mateusz Rus:
 - zbudowanie podstawowego ekranu logowania
 - zbudowanie wstępnej planszy do gry
 
@@ -53,13 +53,16 @@ Zadania:
 - zbudowanie planszy gry.
 - połączenie klient-klient za pomocą websocketów
 - zbudowanie pozostałej logiki gry
+
    Wojciech Chrobak:
 - obsluga websocket
 - obsluga interakcji uzytkowników
 - zapisywanie wyników gier do bazy
 	Kamień milowy 2 - wersja finalna z zaimplementowanymi funkcjonalnościami gotowa do testowania.
+	
 Stabilizacja aplikacji 
-	Zadania:
+
+   Zadania:
 - testowanie i naprawa błędów po stronie frontendu - Mateusz Rus
 - testowanie i naprawa błędów po stronie backendu - Wojciech Chrobak
 
