@@ -7,18 +7,19 @@ Jedną z najpopularniejszych gier w historii jest gra w statki. Wynaleziona na p
 
 Wymagania systemowe i funkcjonalne
 Aplikacja zostanie napisana w modelu MVC. Część frontendowa zostanie napisana w technologii Flutter. Wybraliśmy ją, ponieważ możemy stworzyć za pomocą jednego kodu aplikację na niemal wszystkie najpopularniejsze platformy wliczając Android, iOS, macOS, Windows oraz web. Skupimy się na dostarczeniu rozwiązania aplikacji mobilnej ale wybór technologii pozwoli nam na łatwy deployment aplikacji na inne platformy. Przewagą tej technologii nad innymi bardziej popularnymi jest: 
-użycie jednego tego samego kodu na wszystkie platformy jednocześnie.
-wydajność aplikacji mobilnych na iOS i Android zbliżona do rozwiązań natywnych dla obu tych platform (wyższa niż w rozwiązaniach opartych na JavaScript).
-oszczędność czasu potrzebna do stworzenia interfejsu użytkownika
-zintegrowane środowisko do testowania i debugowania aplikacji.
-duże wsparcie twórcy technologii czyli Google.
+- użycie jednego tego samego kodu na wszystkie platformy jednocześnie.
+- wydajność aplikacji mobilnych na iOS i Android zbliżona do rozwiązań natywnych dla obu tych platform (wyższa niż w 	   rozwiązaniach opartych na JavaScript).
+- oszczędność czasu potrzebna do stworzenia interfejsu użytkownika
+- zintegrowane środowisko do testowania i debugowania aplikacji.
+- duże wsparcie twórcy technologii czyli Google.
 Do obsługi logowania i zarządzania uwierzytelnianiem wykorzystamy gotowe rozwiązanie platformy Firebase, ze względu na większe bezpieczeństwo i znaczne skrócenie czasu tworzenia takiego rozwiązania w przypadku jego implementacji od podstaw.
 
 Backend aplikacji stworzymy w node.js wykorzystując framework Nest.js z natywnym wsparciem TypeScript. Gra będzie typu multiplayer oparta na websocketach aby zapewnić jej dwukierunkową komunikację realtime. Wyniki poszczególnych gier, ranking graczy czy też ewentualne odtwarzanie partii z przeszłości będą zapisywane w bazie MongoDB. Pozwoli to na zapisywanie danych o dowolnej strukturze i przeniesienie większej odpowiedzialności na programistę.
 
 C. Harmonogram prac i zespół projektowy.
 
-![schemat aplikacji](https://ibb.co/xmDh2Wj)
+
+<a href="https://ibb.co/xmDh2Wj"><img src="https://i.ibb.co/pWx21cz/Software-Development-1.png" alt="Software-Development-1" border="0" width="100%"></a>
 
 Przygotowaliśmy wykres Gantta obrazujący postęp prac i plan projektu. W skład naszego zespołu wchodzą: 
 Wojciech Chrobak odpowiedzialny za część backendową aplkacji
@@ -27,43 +28,47 @@ Mateusz Rus odpowiedzialny za część frontendową
 Etapy:
 Rozpoczęcie projektu i ustalanie wymagań
 	Zadania:
-Zebranie wymagań dotyczących aplikacji tj. ustalenie problemu biznesowego, wyszukanie grupy potencjalnych odbiorców, sprawdzenie konkurencyjnych produktów o podobnej tematyce. 
-Wykonanie - cały zespół
-Kamień milowy - Ustalenie potrzebnych wymagań 
+- Zebranie wymagań dotyczących aplikacji tj. ustalenie problemu biznesowego, wyszukanie grupy potencjalnych odbiorców, sprawdzenie konkurencyjnych produktów o podobnej tematyce. 
+ Wykonanie - cały zespół
+ Kamień milowy - Ustalenie potrzebnych wymagań 
 Rozpoczęcie pracy nad poprawną architekturą aplikacji (specyfikacją) odpowiadającej postawionym wymaganiom.
-Zadania:
-Ustalenie technologii użytej do zbudowania UI sprawdzenie potencjalnych możliwości i dopasowanie do potencjalnych odbiorców oraz urządzeń, z których będą korzystali - wykonanie Mateusz Rus
-Ustalenie technologii użytej do zbudowania backendu aplikacji biorąc pod uwagę komunikację klient serwer w czasie rzeczywistym oraz wybranie bazy danych spełniającej postawione wymagania - wykonanie Wojciech Chrobak
+	Zadania:
+- Ustalenie technologii użytej do zbudowania UI sprawdzenie potencjalnych możliwości i dopasowanie do potencjalnych odbiorców oraz urządzeń, z których będą korzystali - wykonanie Mateusz Rus
+- Ustalenie technologii użytej do zbudowania backendu aplikacji biorąc pod uwagę komunikację klient serwer w czasie rzeczywistym oraz wybranie bazy danych spełniającej postawione wymagania - wykonanie Wojciech Chrobak
 	Kamień milowy - ustalenie pełnej architektury aplikacji
 
 Dewelopment aplikacji.
 Zadania:
 Mateusz Rus:
-zbudowanie podstawowego ekranu logowania
-zbudowanie wstępnej planszy do gry
+- zbudowanie podstawowego ekranu logowania
+- zbudowanie wstępnej planszy do gry
 	Wojciech Chrobak:
-zbudowanie logiki logowania
+- zbudowanie logiki logowania
 	Kamień milowy 1 - wersja beta, Podstawowy kod funkcjonalny aplikacji zawierający logowanie i wstępną wizję planszy gry.
 	Mateusz Rus:
-	      -     zbudowanie planszy gry.
-	     -     połączenie klient-klient za pomocą websocketów
+-     zbudowanie planszy gry.
+-     połączenie klient-klient za pomocą websocketów
 	     -     zbudowanie pozostałej logiki gry
-Wojciech Chrobak:
-obsluga websocket
-obsluga interakcji uzytkowników
-zapisywanie wyników gier do bazy
+	Wojciech Chrobak:
+-     obsluga websocket
+-     obsluga interakcji uzytkowników
+-     zapisywanie wyników gier do bazy
 	Kamień milowy 2 - wersja finalna z zaimplementowanymi funkcjonalnościami gotowa do testowania.
 Stabilizacja aplikacji 
-Zadania:
-testowanie i naprawa błędów po stronie frontendu - Mateusz Rus
-testowanie i naprawa błędów po stronie backendu - Wojciech Chrobak
+	Zadania:
+- testowanie i naprawa błędów po stronie frontendu - Mateusz Rus
+- testowanie i naprawa błędów po stronie backendu - Wojciech Chrobak
 
 D.  Analiza i modelowanie.
-![Analiza i modelowanie](https://ibb.co/47T0gS8)
+
+
+<a href="https://ibb.co/FmqgNkv"><img src="https://i.ibb.co/BcKqdHD/schemat-aplikacji.png" alt="schemat-aplikacji" border="0"></a>
 
 
 Frontend - podstawowy schemat  klas:
-![FrontEnd](https://ibb.co/FmqgNkv)
+
+
+<a href="https://ibb.co/47T0gS8"><img src="https://i.ibb.co/9NTd34b/schemat-front.png" alt="schemat-front" border="0"></a>
 
 
 Backend - podstawowy schemat klas
