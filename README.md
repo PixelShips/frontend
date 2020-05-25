@@ -38,21 +38,25 @@ Rozpoczęcie pracy nad poprawną architekturą aplikacji (specyfikacją) odpowia
 	Kamień milowy - ustalenie pełnej architektury aplikacji
 
 Dewelopment aplikacji.
+
 Zadania:
-Mateusz Rus:
+
+
+   Mateusz Rus
 - zbudowanie podstawowego ekranu logowania
 - zbudowanie wstępnej planszy do gry
-	Wojciech Chrobak:
+
+   Wojciech Chrobak:
 - zbudowanie logiki logowania
 	Kamień milowy 1 - wersja beta, Podstawowy kod funkcjonalny aplikacji zawierający logowanie i wstępną wizję planszy gry.
-	Mateusz Rus:
--     zbudowanie planszy gry.
--     połączenie klient-klient za pomocą websocketów
-	     -     zbudowanie pozostałej logiki gry
-	Wojciech Chrobak:
--     obsluga websocket
--     obsluga interakcji uzytkowników
--     zapisywanie wyników gier do bazy
+   Mateusz Rus:
+- zbudowanie planszy gry.
+- połączenie klient-klient za pomocą websocketów
+- zbudowanie pozostałej logiki gry
+   Wojciech Chrobak:
+- obsluga websocket
+- obsluga interakcji uzytkowników
+- zapisywanie wyników gier do bazy
 	Kamień milowy 2 - wersja finalna z zaimplementowanymi funkcjonalnościami gotowa do testowania.
 Stabilizacja aplikacji 
 	Zadania:
