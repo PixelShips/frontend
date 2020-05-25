@@ -48,7 +48,9 @@ Zadania:
 
    Wojciech Chrobak:
 - zbudowanie logiki logowania
-	Kamień milowy 1 - wersja beta, Podstawowy kod funkcjonalny aplikacji zawierający logowanie i wstępną wizję planszy gry.
+
+Kamień milowy 1 - wersja beta, Podstawowy kod funkcjonalny aplikacji zawierający logowanie i wstępną wizję planszy gry.
+	
    Mateusz Rus:
 - zbudowanie planszy gry.
 - połączenie klient-klient za pomocą websocketów
@@ -58,7 +60,8 @@ Zadania:
 - obsluga websocket
 - obsluga interakcji uzytkowników
 - zapisywanie wyników gier do bazy
-	Kamień milowy 2 - wersja finalna z zaimplementowanymi funkcjonalnościami gotowa do testowania.
+
+Kamień milowy 2 - wersja finalna z zaimplementowanymi funkcjonalnościami gotowa do testowania.
 	
 Stabilizacja aplikacji 
 
