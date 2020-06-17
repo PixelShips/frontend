@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import './screens/auth_screen.dart';
+import './screens/players_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +16,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Center(child: Text('test')),
+      home: StreamBuilder(stream: FirebaseAuth.instance.onAuthStateChanged, builder: (context, snapshot) {
+        return snapshot.hasData ? PlayersScreen() : AuthScreen();
+      },),
     );
   }
 }

@@ -18,7 +18,7 @@ Backend aplikacji stworzymy w node.js wykorzystując framework Nest.js z natywny
 
 C. Harmonogram prac i zespół projektowy.
 
-![schemat aplikacji](https://ibb.co/xmDh2Wj)
+https://ibb.co/xmDh2Wj
 
 Przygotowaliśmy wykres Gantta obrazujący postęp prac i plan projektu. W skład naszego zespołu wchodzą: 
 Wojciech Chrobak odpowiedzialny za część backendową aplkacji
