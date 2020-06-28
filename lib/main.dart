@@ -1,12 +1,22 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import './screens/auth_screen.dart';
-import './screens/player_screen.dart';
 import 'package:get/get.dart';
+import 'package:pixel_ships_web/services/socket_service.dart';
 
-import 'services/socket_service.dart';
+import 'providers/battleship_provider.dart';
+import 'providers/carrier_provider.dart';
+import 'providers/destroyer_provider.dart';
+import 'providers/patrolboat_provider.dart';
+import 'providers/submarine_provider.dart';
+import 'screens/init_game.dart';
 
-void main()  {
+void main() {
+  Get.put<BattleShipProvider>(BattleShipProvider());
+  Get.put<CarrierProvider>(CarrierProvider());
+  Get.put<DestroyerProvider>(DestroyerProvider());
+  Get.put<PatrolBoatProvider>(PatrolBoatProvider());
+  Get.put<SubmarineProvider>(SubmarineProvider());
+  Get.put<SocketService>(SocketService());
+
   runApp(MyApp());
 }
 
