@@ -45,7 +45,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
 
                 socket.emit('create-game', data);
                 socket.on('message', (_) {
-                  message = _.toString();
+                  message = _;
                   Get.toNamed('/setShips', arguments: message);
                 });
               },
@@ -68,7 +68,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                 socket.emit('join-game', data);
                 socket.on('message', (_) {
                   print(_);
-                  message = _.toString();
+                  message = _;
                   Get.toNamed('/setShips', arguments: message);
                 });
               },

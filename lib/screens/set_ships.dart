@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pixel_ships_web/providers/battleship_provider.dart';
 import 'package:pixel_ships_web/providers/carrier_provider.dart';
 import 'package:pixel_ships_web/providers/destroyer_provider.dart';
@@ -19,7 +20,7 @@ class SetShips extends StatefulWidget {
 }
 
 class _SetShipsState extends State<SetShips> {
-  var text = 'q';
+  var text = {};
 
   @override
   void initState() {
@@ -32,7 +33,6 @@ class _SetShipsState extends State<SetShips> {
   Widget build(BuildContext context) {
     // Get.snackbar( SnackBar(content: SelectableText(text),));
     // Get.dialog();
-
     return Scaffold(
       body: Center(
         child: Container(
@@ -48,7 +48,23 @@ class _SetShipsState extends State<SetShips> {
                   width: 400,
                   child: Column(
                     children: [
-                      SelectableText(text),
+                      Row(
+                        children: [
+                          RaisedButton(
+                            child: Text('Kopiuj id gry'),
+                            onPressed: () {
+                              Clipboard.setData(
+                                      ClipboardData(text: text['gameId']))
+                                  .then((value) => Get.snackbar(
+                                      'Powodzenie!', 'Skopiowano do schowka!'));
+                            },
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: SelectableText(text['gameId']),
+                          ),
+                        ],
+                      ),
                       GetBuilder<BattleShipProvider>(
                         init: BattleShipProvider(),
                         builder: (_) {
@@ -142,7 +158,7 @@ class _SetShipsState extends State<SetShips> {
                         provider: _,
                       );
                     },
-                  )
+                  ),
                 ],
               )
             ],
