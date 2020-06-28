@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 class PatrolBoatProvider extends GetxController {
   static PatrolBoatProvider get to => Get.find();
 
-  double x;
-  double y;
+  double x = 0;
+  double y = 0;
 
   String name = 'PatrolBoat';
   double width = 0.06;
@@ -25,7 +25,15 @@ class PatrolBoatProvider extends GetxController {
   }
 
   set setY(newY) {
-    x = newY;
+    y = newY;
     update();
+  }
+
+  double get maxX {
+    return 700 - 700 * width;
+  }
+
+  double get maxY {
+    return 700 - 700 * height;
   }
 }

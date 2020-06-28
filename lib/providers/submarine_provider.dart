@@ -28,4 +28,12 @@ class SubmarineProvider extends GetxController {
     y = newY;
     update();
   }
+
+  double get maxX {
+    return 700 - 700 * width;
+  }
+
+  double get maxY {
+    return 700 - 700 * height;
+  }
 }

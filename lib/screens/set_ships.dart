@@ -1,9 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:pixel_ships_web/providers/battleship_provider.dart';
 import 'package:pixel_ships_web/providers/carrier_provider.dart';
 import 'package:pixel_ships_web/providers/destroyer_provider.dart';
+import 'package:pixel_ships_web/providers/game_board_provider.dart';
 import 'package:pixel_ships_web/providers/patrolboat_provider.dart';
 import 'package:pixel_ships_web/providers/submarine_provider.dart';
+import 'package:pixel_ships_web/widgets/paint_ship_with_coordinates.dart';
 import 'package:pixel_ships_web/widgets/set_ship_info.dart';
 import 'package:get/get.dart';
 
@@ -15,9 +19,20 @@ class SetShips extends StatefulWidget {
 }
 
 class _SetShipsState extends State<SetShips> {
+  var text = 'q';
+
+  @override
+  void initState() {
+    super.initState();
+    text = Get.arguments;
+  }
+
   final battleShipProvider = BattleShipProvider.to;
   @override
   Widget build(BuildContext context) {
+    // Get.snackbar( SnackBar(content: SelectableText(text),));
+    // Get.dialog();
+
     return Scaffold(
       body: Center(
         child: Container(
@@ -33,11 +48,11 @@ class _SetShipsState extends State<SetShips> {
                   width: 400,
                   child: Column(
                     children: [
+                      SelectableText(text),
                       GetBuilder<BattleShipProvider>(
                         init: BattleShipProvider(),
                         builder: (_) {
                           return SetShipInfo(
-                            nameOfBoat: _.name,
                             provider: _,
                           );
                         },
@@ -46,7 +61,6 @@ class _SetShipsState extends State<SetShips> {
                         init: SubmarineProvider(),
                         builder: (_) {
                           return SetShipInfo(
-                            nameOfBoat: _.name,
                             provider: _,
                           );
                         },
@@ -55,7 +69,6 @@ class _SetShipsState extends State<SetShips> {
                         init: CarrierProvider(),
                         builder: (_) {
                           return SetShipInfo(
-                            nameOfBoat: _.name,
                             provider: _,
                           );
                         },
@@ -64,7 +77,6 @@ class _SetShipsState extends State<SetShips> {
                         init: DestroyerProvider(),
                         builder: (_) {
                           return SetShipInfo(
-                            nameOfBoat: _.name,
                             provider: _,
                           );
                         },
@@ -73,7 +85,6 @@ class _SetShipsState extends State<SetShips> {
                         init: PatrolBoatProvider(),
                         builder: (_) {
                           return SetShipInfo(
-                            nameOfBoat: _.name,
                             provider: _,
                           );
                         },
@@ -85,10 +96,53 @@ class _SetShipsState extends State<SetShips> {
               Stack(
                 children: [
                   Container(
-                    color: Colors.indigo[400],
+                    color: GameBoardProvider.to.color,
                     width: 700,
                     height: 700,
                   ),
+                  GetBuilder<BattleShipProvider>(
+                    init: BattleShipProvider(),
+                    builder: (_) {
+                      return PaintShipWithCoordinates(
+                        provider: _,
+                      );
+                    },
+                  ),
+                  GetBuilder<BattleShipProvider>(
+                    builder: (_) {
+                      return PaintShipWithCoordinates(
+                        provider: _,
+                      );
+                    },
+                  ),
+                  GetBuilder<SubmarineProvider>(
+                    builder: (_) {
+                      return PaintShipWithCoordinates(
+                        provider: _,
+                      );
+                    },
+                  ),
+                  GetBuilder<CarrierProvider>(
+                    builder: (_) {
+                      return PaintShipWithCoordinates(
+                        provider: _,
+                      );
+                    },
+                  ),
+                  GetBuilder<DestroyerProvider>(
+                    builder: (_) {
+                      return PaintShipWithCoordinates(
+                        provider: _,
+                      );
+                    },
+                  ),
+                  GetBuilder<PatrolBoatProvider>(
+                    builder: (_) {
+                      return PaintShipWithCoordinates(
+                        provider: _,
+                      );
+                    },
+                  )
                 ],
               )
             ],

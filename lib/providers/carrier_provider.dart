@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 class CarrierProvider extends GetxController {
   static CarrierProvider get to => Get.find();
 
-  double x;
-  double y;
+  double x = 0;
+  double y = 0;
 
   String name = 'Carrier';
   double width = 0.2;
@@ -26,7 +26,15 @@ class CarrierProvider extends GetxController {
   }
 
   set setY(newY) {
-    x = newY;
+    y = newY;
     update();
+  }
+
+  double get maxX {
+    return 700 - 700 * width;
+  }
+
+  double get maxY {
+    return 700 - 700 * height;
   }
 }

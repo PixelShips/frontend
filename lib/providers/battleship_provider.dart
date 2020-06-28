@@ -23,13 +23,21 @@ class BattleShipProvider extends GetxController {
 
   double get getY => this.y;
 
+  double get maxX {
+    return 700 - 700 * width;
+  }
+
+  double get maxY {
+    return 700 - 700 * height;
+  }
+
   set setX(newX) {
     x = newX;
     update();
   }
 
   set setY(newY) {
-    x = newY;
+    y = newY;
     update();
   }
 }

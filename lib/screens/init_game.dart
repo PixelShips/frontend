@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'dart:convert';
 
 class PlayerScreen extends StatefulWidget {
   @override
@@ -25,6 +27,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
   Widget build(BuildContext context) {
     var message;
     String name;
+    var id;
     return Scaffold(
       body: Center(
           child: Container(
@@ -42,9 +45,9 @@ class _PlayerScreenState extends State<PlayerScreen> {
 
                 socket.emit('create-game', data);
                 socket.on('message', (_) {
-                  message = _;
+                  message = _.toString();
+                  Get.toNamed('/setShips', arguments: message);
                 });
-                // Get.toNamed()
               },
             ),
             Padding(
@@ -59,7 +62,16 @@ class _PlayerScreenState extends State<PlayerScreen> {
             ),
             RaisedButton(
               child: Text('Dołącz do gry'),
-              onPressed: () {},
+              onPressed: () {
+                id = textControllerId.text;
+                var data = {"id": id};
+                socket.emit('join-game', data);
+                socket.on('message', (_) {
+                  print(_);
+                  message = _.toString();
+                  Get.toNamed('/setShips', arguments: message);
+                });
+              },
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
