@@ -7,7 +7,7 @@ class DestroyerProvider extends GetxController {
   double x = 0;
   double y = 0;
 
-  String name = 'Destroyer';
+  String name = 'destroyer';
   double width = 0.14;
   double height = 0.05;
   var color = Colors.lightGreen[700];
@@ -35,5 +35,13 @@ class DestroyerProvider extends GetxController {
 
   double get maxY {
     return 700 - 700 * height;
+  }
+
+  double get minX {
+    return (this.width / 2) * 700;
+  }
+
+  double get minY {
+    return (this.height / 2) * 700;
   }
 }

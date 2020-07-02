@@ -7,7 +7,7 @@ class CarrierProvider extends GetxController {
   double x = 0;
   double y = 0;
 
-  String name = 'Carrier';
+  String name = 'carrier';
   double width = 0.2;
   double height = 0.05;
 
@@ -36,5 +36,13 @@ class CarrierProvider extends GetxController {
 
   double get maxY {
     return 700 - 700 * height;
+  }
+
+  double get minX {
+    return (this.width / 2) * 700;
+  }
+
+  double get minY {
+    return (this.height / 2) * 700;
   }
 }

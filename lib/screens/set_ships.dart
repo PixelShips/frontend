@@ -1,16 +1,16 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pixel_ships_web/providers/battleship_provider.dart';
-import 'package:pixel_ships_web/providers/carrier_provider.dart';
-import 'package:pixel_ships_web/providers/destroyer_provider.dart';
-import 'package:pixel_ships_web/providers/game_board_provider.dart';
-import 'package:pixel_ships_web/providers/patrolboat_provider.dart';
-import 'package:pixel_ships_web/providers/submarine_provider.dart';
-import 'package:pixel_ships_web/widgets/paint_ship_with_coordinates.dart';
-import 'package:pixel_ships_web/widgets/set_ship_info.dart';
 import 'package:get/get.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
+
+import '../providers/battleship_provider.dart';
+import '../providers/carrier_provider.dart';
+import '../providers/destroyer_provider.dart';
+import '../providers/game_board_provider.dart';
+import '../providers/patrolboat_provider.dart';
+import '../providers/submarine_provider.dart';
+import '../widgets/paint_ship_with_coordinates.dart';
+import '../widgets/set_ship_info.dart';
 
 class SetShips extends StatefulWidget {
   SetShips({Key key}) : super(key: key);
@@ -22,6 +22,10 @@ class SetShips extends StatefulWidget {
 class _SetShipsState extends State<SetShips> {
   var text = {};
 
+  IO.Socket socket = IO.io('http://localhost:8000', <String, dynamic>{
+    'transports': ['websocket'],
+  });
+
   @override
   void initState() {
     super.initState();
@@ -31,8 +35,6 @@ class _SetShipsState extends State<SetShips> {
   final battleShipProvider = BattleShipProvider.to;
   @override
   Widget build(BuildContext context) {
-    // Get.snackbar( SnackBar(content: SelectableText(text),));
-    // Get.dialog();
     return Scaffold(
       body: Center(
         child: Container(
@@ -70,6 +72,7 @@ class _SetShipsState extends State<SetShips> {
                         builder: (_) {
                           return SetShipInfo(
                             provider: _,
+                            socket: socket,
                           );
                         },
                       ),
@@ -78,6 +81,7 @@ class _SetShipsState extends State<SetShips> {
                         builder: (_) {
                           return SetShipInfo(
                             provider: _,
+                            socket: socket,
                           );
                         },
                       ),
@@ -86,6 +90,7 @@ class _SetShipsState extends State<SetShips> {
                         builder: (_) {
                           return SetShipInfo(
                             provider: _,
+                            socket: socket,
                           );
                         },
                       ),
@@ -94,6 +99,7 @@ class _SetShipsState extends State<SetShips> {
                         builder: (_) {
                           return SetShipInfo(
                             provider: _,
+                            socket: socket,
                           );
                         },
                       ),
@@ -102,6 +108,7 @@ class _SetShipsState extends State<SetShips> {
                         builder: (_) {
                           return SetShipInfo(
                             provider: _,
+                            socket: socket,
                           );
                         },
                       )

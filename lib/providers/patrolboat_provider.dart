@@ -7,7 +7,7 @@ class PatrolBoatProvider extends GetxController {
   double x = 0;
   double y = 0;
 
-  String name = 'PatrolBoat';
+  String name = 'patrol-boat';
   double width = 0.06;
   double height = 0.03;
   var color = Colors.blue[900];
@@ -35,5 +35,13 @@ class PatrolBoatProvider extends GetxController {
 
   double get maxY {
     return 700 - 700 * height;
+  }
+
+  double get minX {
+    return (this.width / 2) * 700;
+  }
+
+  double get minY {
+    return (this.height / 2) * 700;
   }
 }

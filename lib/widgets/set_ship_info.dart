@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pixel_ships_web/screens/set_ships.dart';
 import 'package:pixel_ships_web/widgets/paint_ship.dart';
 
 class SetShipInfo extends StatefulWidget {
   final provider;
+  final socket;
 
-  SetShipInfo({this.provider});
+  SetShipInfo({@required this.provider, @required this.socket});
 
   @override
   _SetShipInfoState createState() => _SetShipInfoState();
@@ -14,7 +14,8 @@ class SetShipInfo extends StatefulWidget {
 class _SetShipInfoState extends State<SetShipInfo> {
   double valueX = 0;
   double valueY = 0;
-
+  var exception = '';
+  var message = '';
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -30,10 +31,8 @@ class _SetShipInfoState extends State<SetShipInfo> {
                   min: 0,
                   max: widget.provider.maxX,
                   onChanged: (value) {
-                    setState(() {
-                      valueX = value;
-                      widget.provider.setX = value;
-                    });
+                    valueX = value;
+                    widget.provider.setX = value;
                   },
                 ),
               ),
@@ -63,7 +62,21 @@ class _SetShipInfoState extends State<SetShipInfo> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     color: widget.provider.color,
-                    onPressed: () {},
+                    onPressed: () {
+                      var data = {
+                        "shipType": widget.provider.getName,
+                        "location_x": widget.provider.xToPercent,
+                        "location_y": widget.provider.yToPercent
+                      };
+                      print(data);
+                      widget.socket.emit('set-ship', data);
+                      widget.socket.on('exception', (data) {
+                        if (data != null) print(data);
+                      });
+                      widget.socket.on('message', (data) {
+                        if (data != null) print(data);
+                      });
+                    },
                     child: Text(
                       'Postaw ${widget.provider.name}',
                       style: TextStyle(

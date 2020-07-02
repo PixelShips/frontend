@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class GameBoardProvider extends GetxController {
   static GameBoardProvider get to => Get.find();
 
-  double sideLength;
+  double sideLength = 700;
 
   set setSideLength(double length) {
     sideLength = length;

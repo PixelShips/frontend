@@ -7,7 +7,7 @@ class SubmarineProvider extends GetxController {
   double x = 0;
   double y = 0;
 
-  String name = 'Submarine';
+  String name = 'submarine';
   double width = 0.10;
   double height = 0.04;
   var color = Colors.lightBlue[800];
@@ -35,5 +35,13 @@ class SubmarineProvider extends GetxController {
 
   double get maxY {
     return 700 - 700 * height;
+  }
+
+  double get minX {
+    return (this.width / 2) * 700;
+  }
+
+  double get minY {
+    return (this.height / 2) * 700;
   }
 }
