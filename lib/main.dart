@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pixel_ships_web/providers/game_board_provider.dart';
 import 'package:pixel_ships_web/screens/my_game_screen.dart';
+import 'package:pixel_ships_web/screens/shoot_game_screen.dart';
 import 'package:pixel_ships_web/services/socket_service.dart';
 
 import 'providers/battleship_provider.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/setShips', page: () => SetShips()),
-        GetPage(name: '/my-game-ships', page: () => GameScreenShips())
+        GetPage(name: '/my-game-ships', page: () => GameScreenShips()),
+        GetPage(name: '/shoot-game-screen', page: () => ShootGameScreen())
       ],
       title: 'Flutter Demo',
       theme: ThemeData(
