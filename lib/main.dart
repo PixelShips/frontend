@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pixel_ships_web/providers/game_board_provider.dart';
+import 'package:pixel_ships_web/screens/my_game_screen.dart';
 import 'package:pixel_ships_web/services/socket_service.dart';
 
 import 'providers/battleship_provider.dart';
@@ -8,8 +9,8 @@ import 'providers/carrier_provider.dart';
 import 'providers/destroyer_provider.dart';
 import 'providers/patrolboat_provider.dart';
 import 'providers/submarine_provider.dart';
-import 'screens/init_game.dart';
-import 'screens/set_ships.dart';
+import 'screens/init_game_screen.dart';
+import 'screens/set_ships_screen.dart';
 
 void main() {
   Get.put<BattleShipProvider>(BattleShipProvider());
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/setShips', page: () => SetShips()),
+        GetPage(name: '/my-game-ships', page: () => GameScreenShips())
       ],
       title: 'Flutter Demo',
       theme: ThemeData(

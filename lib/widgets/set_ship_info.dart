@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pixel_ships_web/widgets/paint_ship.dart';
 
 class SetShipInfo extends StatefulWidget {
@@ -16,6 +17,7 @@ class _SetShipInfoState extends State<SetShipInfo> {
   double valueY = 0;
   var exception = '';
   var message = '';
+
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -71,10 +73,23 @@ class _SetShipInfoState extends State<SetShipInfo> {
                       print(data);
                       widget.socket.emit('set-ship', data);
                       widget.socket.on('exception', (data) {
-                        if (data != null) print(data);
+                        if (data != null) {
+                          print(data);
+                          setState(() {
+                            exception = data['message'];
+                            Get.snackbar(data['status'], data['message']);
+                          });
+                        }
                       });
                       widget.socket.on('message', (data) {
-                        if (data != null) print(data);
+                        if (data != null) {
+                          print(data);
+                          setState(() {
+                            message = data['message'];
+                            Get.snackbar(
+                                data['message'], 'Zapisano położenie statku!');
+                          });
+                        }
                       });
                     },
                     child: Text(

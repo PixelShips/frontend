@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'game_board_provider.dart';
+
 class SubmarineProvider extends GetxController {
   static SubmarineProvider get to => Get.find();
 
@@ -43,5 +45,15 @@ class SubmarineProvider extends GetxController {
 
   double get minY {
     return (this.height / 2) * 700;
+  }
+
+  double get xToPercent {
+    return double.parse((this.x / GameBoardProvider.to.sideLength + width / 2)
+        .toStringAsFixed(2));
+  }
+
+  double get yToPercent {
+    return double.parse((this.y / GameBoardProvider.to.sideLength + height / 2)
+        .toStringAsFixed(2));
   }
 }

@@ -111,6 +111,19 @@ class _SetShipsState extends State<SetShips> {
                             socket: socket,
                           );
                         },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: RaisedButton(
+                          onPressed: () {
+                            Get.toNamed('/my-game-ships');
+                          },
+                          child: Text(
+                            'Rozpocznij grę',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          color: Colors.lightGreen[900],
+                        ),
                       )
                     ],
                   ),
