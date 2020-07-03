@@ -30,6 +30,9 @@ class _SetShipsState extends State<SetShips> {
   void initState() {
     super.initState();
     text = Get.arguments;
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Get.snackbar('Powodzenie', text['message']);
+    });
   }
 
   final battleShipProvider = BattleShipProvider.to;
@@ -116,7 +119,16 @@ class _SetShipsState extends State<SetShips> {
                         padding: const EdgeInsets.only(top: 8.0),
                         child: RaisedButton(
                           onPressed: () {
-                            Get.toNamed('/my-game-ships');
+                            if (battleShipProvider.isSet &&
+                                CarrierProvider.to.isSet &&
+                                DestroyerProvider.to.isSet &&
+                                PatrolBoatProvider.to.isSet &&
+                                SubmarineProvider.to.isSet) {
+                              Get.toNamed('/my-game-ships');
+                            } else {
+                              Get.snackbar(
+                                  'Błąd!', 'Ustaw poprawnie wszystkie statki!');
+                            }
                           },
                           child: Text(
                             'Rozpocznij grę',

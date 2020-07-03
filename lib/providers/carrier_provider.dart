@@ -6,6 +6,11 @@ import 'game_board_provider.dart';
 class CarrierProvider extends GetxController {
   static CarrierProvider get to => Get.find();
 
+  bool isSet = false;
+
+  bool hit = false;
+  bool sunk = false;
+
   double x = 0;
   double y = 0;
 
@@ -56,5 +61,10 @@ class CarrierProvider extends GetxController {
   double get yToPercent {
     return double.parse((this.y / GameBoardProvider.to.sideLength + height / 2)
         .toStringAsFixed(2));
+  }
+
+  set setIsSet(bool isset) {
+    isSet = isset;
+    update();
   }
 }

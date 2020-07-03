@@ -78,6 +78,7 @@ class _SetShipInfoState extends State<SetShipInfo> {
                           setState(() {
                             exception = data['message'];
                             Get.snackbar(data['status'], data['message']);
+                            widget.provider.setIsSet = false;
                           });
                         }
                       });
@@ -88,6 +89,7 @@ class _SetShipInfoState extends State<SetShipInfo> {
                             message = data['message'];
                             Get.snackbar(
                                 data['message'], 'Zapisano położenie statku!');
+                            widget.provider.setIsSet = true;
                           });
                         }
                       });

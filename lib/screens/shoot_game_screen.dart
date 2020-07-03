@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pixel_ships_web/providers/game_board_provider.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class ShootGameScreen extends StatefulWidget {
   ShootGameScreen({Key key}) : super(key: key);

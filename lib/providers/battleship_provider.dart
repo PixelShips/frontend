@@ -5,6 +5,11 @@ import 'package:pixel_ships_web/providers/game_board_provider.dart';
 class BattleShipProvider extends GetxController {
   static BattleShipProvider get to => Get.find();
 
+  bool isSet = false;
+
+  bool hit = false;
+  bool sunk = false;
+
   double x = 0;
   double y = 0;
 
@@ -57,6 +62,11 @@ class BattleShipProvider extends GetxController {
 
   set setY(newY) {
     y = newY;
+    update();
+  }
+
+  set setIsSet(bool isset) {
+    isSet = isset;
     update();
   }
 }
